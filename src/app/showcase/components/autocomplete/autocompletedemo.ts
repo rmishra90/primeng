@@ -38,14 +38,17 @@ export class AutoCompleteDemo {
     
     filterCountry(query, countries: any[]):any[] {
         //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
-        let filtered : any[] = [];
-        for(let i = 0; i < countries.length; i++) {
-            let country = countries[i];
-            if(country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-                filtered.push(country);
-            }
-        }
-        return filtered;
+        //let filtered : any[] = [];
+       // for(let i = 0; i < countries.length; i++) {
+       //     let country = countries[i];
+//if(country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+   //             filtered.push(country);
+     //       }
+//}
+//return filtered;
+        
+        // the below code snippet will work with the like search which i think can be implimented
+         return countries ? countries.filter(item => item.name.search(new RegExp(query, 'i')) > -1) : [];
     }
         
     filterBrands(event) {
